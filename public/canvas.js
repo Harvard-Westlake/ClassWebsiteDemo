@@ -20,11 +20,14 @@ function drawArt(ctx) {
   ctx.arc(0, 0, 100, 0, Math.PI * 2, false);
   ctx.stroke();
 
-  ctx.lineWidth = 2;
+  ctx.save();
+  var time = new Date();
+  ctx.rotate(time.getSeconds() + time.getMilliseconds() / 1000);
   ctx.beginPath();
   ctx.moveTo(-100, -180);
   ctx.lineTo(140, 120);
   ctx.stroke();
+  ctx.restore();
 
   ctx.fillRect(-160, 10, 100, 100);
 }
@@ -40,6 +43,7 @@ function draw() {
   ctx.strokeStyle = 'rgba(0, 153, 255, 0.4)';
 
   ctx.save();
+  ctx.lineWidth = 6;
   ctx.translate(450, 250);
   drawArt(ctx);
   ctx.restore();
