@@ -4,6 +4,10 @@ function initializeAnimation() {
 }
 
 function drawArt(ctx) {
+
+  ctx.save();
+  var time2 = new Date();
+  ctx.translate(time2.getSeconds(), 0);
   // Draw triangle
   ctx.beginPath();
   ctx.moveTo(-190, -120);
@@ -30,6 +34,7 @@ function drawArt(ctx) {
   ctx.restore();
 
   ctx.fillRect(-160, 10, 100, 100);
+  ctx.restore();
 }
 
 function draw() {
